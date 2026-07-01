@@ -1,0 +1,100 @@
+.quiz-container {
+  background-color: transparent;
+  color: var(--text);
+  min-height: 80vh;
+  padding: 40px 20px;
+  font-family: 'Sora', sans-serif;
+}
+
+.exams-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.exams-subheading {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.subject-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.subject-card {
+  background: linear-gradient(145deg, var(--surface2), var(--surface3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+
+.subject-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-bright);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.4), var(--glow-cyan);
+}
+
+.subject-card:hover::after { transform: scaleX(1); }
+
+.subject-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--primary);
+  font-size: 16px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.subject-card p { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
+
+.subject-card button {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 9px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.subject-card button:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  box-shadow: 0 4px 16px rgba(0,212,255,0.3);
+}

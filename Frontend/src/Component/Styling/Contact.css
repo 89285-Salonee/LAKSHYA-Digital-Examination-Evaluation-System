@@ -1,0 +1,98 @@
+.contact-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  color: var(--text);
+}
+
+.contact-page h2 {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.contact-page .para { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+.contact-details .contact-item h5 {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact-form {
+  background: linear-gradient(135deg, var(--surface2), var(--surface3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.contact-form .form-label {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-password-input {
+  background: rgba(22,37,72,0.8) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--text) !important;
+  font-size: 15px;
+  padding: 11px 14px;
+  transition: all 0.2s;
+}
+
+.custom-password-input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.1) !important;
+  outline: none;
+  background: rgba(22,37,72,1) !important;
+}
+
+.custom-password-input::placeholder { color: var(--text-dim) !important; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 10px !important;
+  padding: 12px !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0,212,255,0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary)) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,212,255,0.35);
+}
+
+#emaillink { color: var(--primary); }
+
+#thanks {
+  background: linear-gradient(135deg, var(--surface2), var(--surface3));
+  border: 1px solid rgba(16,217,123,0.25);
+  border-radius: var(--radius);
+  padding: 36px;
+  color: var(--text);
+}

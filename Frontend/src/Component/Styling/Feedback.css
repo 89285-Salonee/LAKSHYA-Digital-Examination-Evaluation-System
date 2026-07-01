@@ -1,0 +1,77 @@
+.feedback-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  color: var(--text);
+}
+
+.feedback-page h2 {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.feedback-form {
+  background: linear-gradient(135deg, var(--surface2), var(--surface3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+.feedback-form .form-label {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-input {
+  background: rgba(22,37,72,0.8) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--text) !important;
+  font-size: 15px;
+  padding: 11px 14px;
+}
+
+.custom-input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.1) !important;
+  background: rgba(22,37,72,1) !important;
+}
+
+.custom-input::placeholder { color: var(--text-dim) !important; }
+
+.btn-feedback {
+  background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 12px 28px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.2);
+}
+
+.btn-feedback:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(139,92,246,0.35);
+}

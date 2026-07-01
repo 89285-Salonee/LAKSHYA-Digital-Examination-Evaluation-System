@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* LAKSHYA – New Color System: Deep Navy + Electric Cyan + Violet */
+  --primary: #00d4ff;
+  --primary-light: #7df9ff;
+  --primary-dark: #0099bb;
+  --accent: #8b5cf6;
+  --accent-light: #c4b5fd;
+  --accent-dark: #6d28d9;
+
+  --deep: #030712;
+  --surface: #080f1e;
+  --surface2: #0d1830;
+  --surface3: #111f3d;
+  --surface4: #162548;
+
+  --border: rgba(0,212,255,0.12);
+  --border-bright: rgba(0,212,255,0.35);
+  --border-accent: rgba(139,92,246,0.3);
+
+  --text: #e2f0ff;
+  --text-muted: #6b8aad;
+  --text-dim: #4a6580;
+
+  --success: #10d97b;
+  --error: #f43f5e;
+  --warning: #f59e0b;
+  --info: #00d4ff;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+
+  /* Glow effects */
+  --glow-cyan: 0 0 20px rgba(0,212,255,0.25), 0 0 60px rgba(0,212,255,0.08);
+  --glow-accent: 0 0 20px rgba(139,92,246,0.25), 0 0 60px rgba(139,92,246,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--deep);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,212,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 50%, rgba(139,92,246,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(0,212,255,0.03) 0%, transparent 50%);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .brand-font { font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
+
+a { text-decoration: none; color: var(--primary); }
+a:hover { color: var(--primary-light); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--primary-dark), var(--accent)); border-radius: 3px; }
+
+/* Selection */
+::selection { background: rgba(0,212,255,0.2); color: var(--primary-light); }
+
+/* ── Bootstrap dark overrides ── */
+.card {
+  background-color: var(--surface2) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+.card-body { background-color: transparent !important; color: var(--text) !important; }
+.card-title { color: var(--text) !important; }
+.card-text  { color: var(--text-muted) !important; }
+
+.container, .container-fluid, .container-lg,
+.container-md, .container-sm, .container-xl { background: transparent !important; }
+
+.row { --bs-gutter-x: 1.5rem; }
+.navbar { background-color: transparent !important; }
+.navbar-collapse { background: transparent; }
+
+.dropdown-menu {
+  background-color: var(--surface2) !important;
+  border-color: var(--border) !important;
+}
+.dropdown-item { color: var(--text) !important; }
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: rgba(0,212,255,0.08) !important;
+  color: var(--primary) !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary) !important;
+  border-color: var(--border-bright) !important;
+}
+.btn-outline-primary:hover {
+  background-color: rgba(0,212,255,0.08) !important;
+  color: var(--primary-light) !important;
+}
+
+.form-control, .form-select {
+  background-color: var(--surface3) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.12) !important;
+  background-color: var(--surface3) !important;
+  color: var(--text) !important;
+}
+.form-label { color: var(--text-muted) !important; }
+
+.collapse, .collapsing { background: transparent !important; }
+.bg-white { background-color: var(--surface2) !important; }
+.bg-light  { background-color: var(--surface)  !important; }
+.text-dark { color: var(--text) !important; }
+.alert { background-color: var(--surface2) !important; border-color: var(--border) !important; color: var(--text) !important; }
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}

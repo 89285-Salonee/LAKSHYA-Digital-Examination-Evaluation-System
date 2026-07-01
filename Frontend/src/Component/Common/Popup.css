@@ -1,0 +1,171 @@
+/* ===== LAKSHYA Toast Notification System ===== */
+
+/* Toast Container – fixed top-right */
+.lk-toast-container {
+  position: fixed;
+  top: 96px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.lk-toast {
+  pointer-events: all;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  animation: lk-toast-in 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+
+.lk-toast.lk-toast--exiting {
+  animation: lk-toast-out 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes lk-toast-in {
+  from { opacity: 0; transform: translateX(60px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes lk-toast-out {
+  from { opacity: 1; transform: translateX(0) scale(1); max-height: 100px; margin-bottom: 0; }
+  to   { opacity: 0; transform: translateX(60px) scale(0.9); max-height: 0; margin-bottom: -10px; }
+}
+
+/* Progress bar */
+.lk-toast__progress {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.5;
+  border-radius: 0 0 0 12px;
+  transform-origin: left;
+  animation: lk-progress linear forwards;
+}
+
+@keyframes lk-progress {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+/* Icon container */
+.lk-toast__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+.lk-toast__body { flex: 1; }
+.lk-toast__title {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+  font-family: 'Rajdhani', sans-serif;
+}
+.lk-toast__msg { opacity: 0.85; font-size: 13px; }
+
+.lk-toast__close {
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.5;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  line-height: 1;
+  margin-top: 2px;
+}
+.lk-toast__close:hover { opacity: 1; }
+
+/* ── Variants ── */
+.lk-toast--success {
+  background: rgba(16, 217, 123, 0.08);
+  border-color: rgba(16, 217, 123, 0.3);
+  color: #5ef5b0;
+}
+.lk-toast--success .lk-toast__icon { background: rgba(16,217,123,0.15); }
+
+.lk-toast--error {
+  background: rgba(244, 63, 94, 0.08);
+  border-color: rgba(244, 63, 94, 0.3);
+  color: #fb7185;
+}
+.lk-toast--error .lk-toast__icon { background: rgba(244,63,94,0.15); }
+
+.lk-toast--warning {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+}
+.lk-toast--warning .lk-toast__icon { background: rgba(245,158,11,0.15); }
+
+.lk-toast--info {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #7df9ff;
+}
+.lk-toast--info .lk-toast__icon { background: rgba(0,212,255,0.15); }
+
+/* === Inline popup (used inside forms) === */
+.lk-popup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  border: 1px solid;
+  animation: lk-pop-in 0.25s cubic-bezier(.22,.61,.36,1) both;
+  position: relative;
+  width: 100%;
+}
+
+@keyframes lk-pop-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.lk-popup--success { background: rgba(16,217,123,0.08); border-color: rgba(16,217,123,0.3); color: #5ef5b0; }
+.lk-popup--error   { background: rgba(244,63,94,0.08);  border-color: rgba(244,63,94,0.3);  color: #fb7185; }
+.lk-popup--warning { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.3); color: #fcd34d; }
+.lk-popup--info    { background: rgba(0,212,255,0.08);  border-color: rgba(0,212,255,0.3);  color: #7df9ff; }
+
+.lk-popup__icon { font-size: 15px; flex-shrink: 0; }
+.lk-popup__msg  { flex: 1; line-height: 1.5; }
+.lk-popup__close {
+  background: none; border: none; color: inherit; opacity: 0.6;
+  cursor: pointer; font-size: 13px; padding: 0; flex-shrink: 0; transition: opacity 0.2s;
+}
+.lk-popup__close:hover { opacity: 1; }
+
+@media (max-width: 480px) {
+  .lk-toast-container { right: 12px; left: 12px; max-width: 100%; }
+}
